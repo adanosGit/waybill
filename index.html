@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Waybill</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="selectCarContainer">
+      <select name="" id="type-car">
+        <option value="">КРАЗ-63221</option>
+        <option value="">КРАЗ-6444</option>
+        <option value="">КРАЗ-6446</option>
+        <option value="">МАЗ-537</option>
+        <option value="">УРАЛ-4320</option>
+      </select>  
+    </div>
+    <div class="mainContainer">   
+      <input id="btn-add-path" type="button" value="Додати маршрут">
+      <table class="">
+        <thead>
+          <tr>
+            <th scope="col" class="truckPath">Маршрут руху</th>
+            <th scope="col" class="pathScore">КМ з вантажем</th>
+            <th scope="col" class="pathScore">КМ без вантажу</th>
+            <th scope="col" class="pathScore">КМ Усього</th>
+            <th scope="col" class="pathScore">КМ з причепом</th>
+            <th scope="col" class="pathScore">Найменування вантажу</th>
+            <th scope="col">Вага вантажу, тон</th>
+            <th scope="col"><input id="speedometerStartScore" class="alertBorder textRight" type="text" placeholder="Показник спідометру"></th>
+          </tr>
+        </thead>
+        <tbody id="tbodyData" autocomplete="off"></tbody>
+        <tr>
+          <th scope="col" class="truckPath">Всього КМ</th>
+          <th scope="col" class="pathScore">
+            <input
+              class="readonly textRight"
+              id="km-with-cargo-total"
+              type="text"
+              readonly
+              placeholder="0"
+            />
+          </th>
+          <th scope="col" class="pathScore">
+            <input
+              class="readonly textRight"
+              id="km-without-cargo-total"
+              type="text"
+              readonly
+              placeholder="0"
+            />
+          </th>
+          <th scope="col" class="pathScore">
+            <input
+              class="readonly textRight"
+              id="km-total"
+              type="text"
+              readonly
+              placeholder="0"
+            />
+          </th>
+          <th scope="col" class="pathScore">
+            <input
+              class="readonly textRight"
+              id="km-with-trailer-total"
+              type="text"
+              readonly
+              placeholder="0"
+            />
+          </th>
+          <th scope="col" class="pathScore"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </table>
+      <div class="containerCalculation">
+        <div class="containerFuelCalculation">
+          <h2><span>Розрахунок ПММ</span></h4>
+          <h3><span id="fuelOn100km"></span><span id="fuelON1km"></span></h3>
+          <h3><span>- 15% по удосконаленому покриттю</span></h4>
+          <div id="listFuel"></div>
+          <h3><span id="spanTotalKM"></span><span id="fuelON1km"></span></h3>
+          <h3><span id="spanTotalFuel"></span></h4>
+         
+        </div>
+        <div class="containerFuelCalculation" id="divResult"></div>
+      </div>
+    </div>
+    <script src="/js/main.js" type="module"></script>
+    <script>
+      require('./js/redner.js');
+    </script>
+  </body>
+</html>

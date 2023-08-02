@@ -1,0 +1,84 @@
+body {
+  background-color: grey;
+}
+.selectCarContainer{
+  width: 200px;
+}
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+#btn-add-path{
+  height: 40px;
+  width: 250px;
+  margin-top: 15px;
+  border-radius: 10px;
+  border:2px solid;
+  cursor: pointer;
+}
+#btn-add-path:hover{
+  opacity: 0.8;
+}
+#btn-add-path:active{
+  background-color: lightgreen;
+  opacity: 0.4;
+}
+.truckPath {
+  padding: 10px 20px 0px 0px;
+  width: 300px;
+}
+.pathScore {
+  padding: 10px 20px 0px 0px;
+  width: 150px;
+}
+input,
+select,
+span {
+  height: 30px;
+  font-size: 18px;
+  width: 100%;
+}
+.textRight {
+  text-align: right;
+}
+#spanTotalKM{
+  padding-right: 50px;
+}
+.itemContainer {
+  height: 50px;
+  width: 400px;
+  background-color: green;
+}
+.readonly {
+  background-color: lightblue;
+}
+
+.containerCalculation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  background-color: lightgreen;
+  height: 100%;
+}
+
+.containerFuelCalculation {
+  padding: 20px;
+  width: 100%;
+}
+.listFuel{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+.alertBorder{
+  border: 2px solid red;
+  box-shadow: 10px 5px 5px red;
+}
