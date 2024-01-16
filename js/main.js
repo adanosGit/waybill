@@ -1,4 +1,3 @@
-
 // const pathh = require('path');
 // const url = require('url');
 // const {app, BrowserWindow} = require('electron');
@@ -31,7 +30,6 @@
 //   app.quit();
 // });
 
-
 import arrTableDataID, { createElem, isAN } from "./Module.js";
 
 let id = 0;
@@ -55,15 +53,33 @@ class Path {
 
 const arrTypeAndWeightCargo = [
   { name: "ПУСТИЙ", weight: 0 },
-  { name: "МТЛБ", weight: 9.7 },
+  { name: "БАТ-2", weight: 39.7 },
+  { name: "БМД-1", weight: 7.2 },
   { name: "БМП", weight: 14 },
+  { name: "БРЕМ-1", weight: 41 },
+  { name: "БТР-60", weight: 9.9 },
+  { name: "БТР-70", weight: 11 },
+  { name: "БТР-80", weight: 13.6 },
+  { name: "БТС", weight: 34 },
+  { name: "ВТ-72", weight: 48 },
+  { name: "ГМЗ-3", weight: 28.5 },
+  { name: "ЗРК-2СБ (ТУНГУСКА)", weight: 34 },
+  { name: "ЗРК (СТРЕЛА С-10)", weight: 12.3 },
+  { name: "ПЗМ-2", weight: 12.8 },
+  { name: "С-10", weight: 12.3 },
+  { name: "САУ-2С1 (ГВОЗДИКА)", weight: 15.7 },
+  { name: "САУ-2С3 (АКАЦИЯ)", weight: 27.5 },
+  { name: "МТЛБ", weight: 9.7 },
   { name: "Т-64", weight: 40 },
+  { name: "Т-80", weight: 42.5 },
+  { name: "УРАЛ-4320", weight: 8 },
+  { name: "ROSHEL Senator", weight: 8.9 },
 ];
 
 const arrCar = [
-  { type: "КРАЗ-63221", fuelOn_100: 50.0, fuelOn_1: 0.5 },
-  { type: "КРАЗ-6444", fuelOn_100: 50.0, fuelOn_1: 0.5 },
-  { type: "КРАЗ-6446", fuelOn_100: 50.0, fuelOn_1: 0.5 },
+  { type: "КРАЗ-63221", fuelOn_100: 49.3, fuelOn_1: 0.493 },
+  { type: "КРАЗ-6444", fuelOn_100: 46.75, fuelOn_1: 0.4675 },
+  { type: "КРАЗ-6446", fuelOn_100: 73.4, fuelOn_1: 0.734 },
   { type: "МАЗ-537", fuelOn_100: 125.0, fuelOn_1: 1.25 },
   { type: "УРАЛ-4320", fuelOn_100: 44.5, fuelOn_1: 0.445 },
 ];
@@ -75,13 +91,15 @@ const btnAddPath = document.querySelector("#btn-add-path");
 // событие select выбора машины
 const selectedTypeCar = document.getElementById("type-car");
 selectedTypeCar.onchange = () => {
+
   let selectedCar = selectedTypeCar.options[selectedTypeCar.selectedIndex].text;
   typeCar = arrCar.find((car) => car.type === selectedCar);
   // console.log(typeCar);
   spanFuelOn100km.innerText = "100 км ---- " + typeCar.fuelOn_100 + "л        ";
   spanFuelOn1km.innerText = "   1 км ---- " + typeCar.fuelOn_1 + "л";
+  
+  updateArrSelecteTypeCargo();
   resultByCategoryCargo();
-  і
 };
 
 const inputKMWithCargoTotal = document.querySelector("#km-with-cargo-total");
@@ -95,11 +113,13 @@ const inputKMWithTrailerTotal = document.querySelector(
 
 const spanFuelOn100km = document.getElementById("fuelOn100km");
 const spanFuelOn1km = document.getElementById("fuelON1km");
-spanFuelOn100km.innerText = "100 км ---- " + typeCar.fuelOn_100 + "л        ";
-spanFuelOn1km.innerText = "   1 км ---- " + typeCar.fuelOn_1 + "л";
 const spanTotalKM = document.getElementById("spanTotalKM");
 const spanTotalFuel = document.getElementById("spanTotalFuel");
 const divResult = document.getElementById("divResult");
+
+spanFuelOn100km.innerText = "100 км ---- " + typeCar.fuelOn_100 + "л        ";
+spanFuelOn1km.innerText = "   1 км ---- " + typeCar.fuelOn_1 + "л";
+
 
 // события инпута начальных данных спидометра
 const inputSpeedometerStartScore = document.getElementById(
